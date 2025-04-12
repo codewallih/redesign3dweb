@@ -1,3 +1,1 @@
-deployed in https://enchanting-snickerdoodle-16d9a7.netlify.app/ 
-
-![image](https://github.com/user-attachments/assets/5a96612c-ccfd-433b-9b56-f0b8d40adf46)
+![image](https://github.com/user-attachments/assets/a916d359-c05c-4b32-b8bb-bd0dd0a0f46e)

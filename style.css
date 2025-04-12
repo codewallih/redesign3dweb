@@ -322,8 +322,8 @@ nav ul li {
 
 /* Main navigation styles */
 .main-navigation ul li {
-  background-color: #0188b1;
-  border: 2px solid #0188b1;
+  background-color: #fd960f;
+  border: 2px solid #e99906;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(124, 9, 231, 0.5);
 }
@@ -729,6 +729,7 @@ header .content-fit nav ul {
   border-bottom: 2px solid #fff;
   margin-bottom: 10px;
   padding-bottom: 5px;
+  font-family: "orbitron";
   font-size: 18px;
 }
 

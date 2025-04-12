@@ -1,73 +1,72 @@
 // Import necessary libraries from Skypack
 import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
+import { DRACOLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/DRACOLoader.js";
 import { gsap } from "https://cdn.skypack.dev/gsap";
 
 // Setup scene, camera, and renderer
-const scene = new THREE.Scene();
-// Create a perspective camera with 75-degree field of view, aspect ratio based on window size, near and far clipping planes
-const camera = new THREE.PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);
-// Set camera's initial position along the Z-axis
-camera.position.z = 10;
+const scene = new THREE.Scene(); // Create a new 3D scene
+const camera = new THREE.PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000); // Create a camera with a field of view of 75 degrees
+camera.position.z = 10; // Place the camera 10 units away along the z-axis
 
-// Initialize the WebGL renderer with transparency enabled
-const renderer = new THREE.WebGLRenderer({ alpha: true });
-// Set the renderer size to match the window size
-renderer.setSize(innerWidth, innerHeight);
-// Append the renderer's canvas element to the DOM container
-document.getElementById("container3D").appendChild(renderer.domElement);
+const renderer = new THREE.WebGLRenderer({ alpha: true }); // Create a WebGL renderer with transparency
+renderer.setSize(innerWidth, innerHeight); // Set the size of the renderer to match the window dimensions
+document.getElementById("container3D").appendChild(renderer.domElement); // Attach the renderer to the DOM
 
-// Lighting setup for scene
-// Ambient light to illuminate the scene evenly
-scene.add(new THREE.AmbientLight(0xffffff, 1.8));
-// Directional light (like sunlight) to cast strong shadows and light the scene from a specific direction
-const dirLight = new THREE.DirectionalLight(0xffffff, 1.8);
-dirLight.position.set(100, 100, 100); // Position the directional light
-scene.add(dirLight);
+// Lighting setup
+scene.add(new THREE.AmbientLight(0xffffff, 1.8)); // Add ambient light to the scene (bright, white)
+const dirLight = new THREE.DirectionalLight(0xffffff, 1.8); // Add a directional light (like sunlight)
+dirLight.position.set(100, 100, 100); // Set the position of the directional light
+scene.add(dirLight); // Add the light to the scene
 
-// Initialize GLTF loader to load 3D models
+// DRACO Compression setup (for optimized 3D models)
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath('https://cdn.skypack.dev/three@0.129.0/examples/js/libs/draco/'); // Set the path for DRACO decoder files
+
+// GLTFLoader setup with DRACO compression
 const loader = new GLTFLoader();
-// Declare variables for the models and mixers (for animation)
-let bee, speaker, mixers = [];
+loader.setDRACOLoader(dracoLoader); // Link the DRACO loader to the GLTF loader for compressed models
+
+// Declare variables for models and mixers
+let bee, speaker, mixers = []; // `bee` and `speaker` are the models, `mixers` is an array for animation mixing
 
 // Function to animate models (rotation, position, scale)
 const animateModel = (model, anims = [], scale = 1, pos = [0, 0, 0]) => {
-  // Set model's scale and position
-  model.scale.set(scale, scale, scale);
-  model.position.set(...pos);
-  scene.add(model);
+  model.scale.set(scale, scale, scale); // Scale the model to the specified size
+  model.position.set(...pos); // Set the position of the model in 3D space
+  scene.add(model); // Add the model to the scene
 
-  // If animations are available, play them
+  // If the model has animations, play them
   if (anims.length) {
-    const mixer = new THREE.AnimationMixer(model);
-    mixer.clipAction(anims[0]).play(); // Play the first animation
-    mixers.push(mixer); // Store the mixer for updating during the animation loop
+    const mixer = new THREE.AnimationMixer(model); // Create an animation mixer for the model
+    mixer.clipAction(anims[0]).play(); // Play the first animation of the model
+    mixers.push(mixer); // Add the mixer to the `mixers` array
   }
 
-  // Add rotation animation using GSAP (smooth continuous rotation around all axes)
+  // Rotate the model continuously using GSAP
   gsap.to(model.rotation, {
-    x: "+=6.28", y: "+=6.28", z: "+=6.28", // 360 degrees
-    repeat: -1, duration: 6, ease: "none", // Infinite loop of rotation
+    x: "+=6.28", y: "+=6.28", z: "+=6.28", 
+    repeat: -1, duration: 6, ease: "none", 
     modifiers: { x: gsap.utils.wrap(0, Math.PI * 2), y: gsap.utils.wrap(0, Math.PI * 2), z: gsap.utils.wrap(0, Math.PI * 2) }
   });
 
-  // Add floating motion to the model using GSAP (bounce effect)
+  // Make the model bounce up and down using GSAP
   gsap.to(model.position, {
-    y: "+=1", yoyo: true, repeat: -1, // Move up and down
-    duration: 1.2, ease: "sine.inOut" // Smooth easing for a floating effect
+    y: "+=1", yoyo: true, repeat: -1,
+    duration: 1.2, ease: "sine.inOut"
   });
 };
 
-// Load 3D model of the robot arm (Bee)
+// Load the bee model (robot arm) with DRACO compression
 loader.load("/industrial_robot_arm.glb", (gltf) => {
-  bee = gltf.scene; // Extract the scene from the loaded GLTF
-  animateModel(bee, gltf.animations, 0.08, [-2, -1, -1]); // Animate the robot arm with a scale and position
+  bee = gltf.scene; // Store the loaded model
+  animateModel(bee, gltf.animations, 0.08, [-2, -1, -1]); // Animate the bee model
 });
 
-// Load 3D model of the speaker
+// Load the speaker model with DRACO compression
 loader.load("/speaker_test.glb", (gltf) => {
-  speaker = gltf.scene;
-  animateModel(speaker, gltf.animations, 6, [0.5, -1, -1]); // Animate the speaker with a larger scale and position
+  speaker = gltf.scene; // Store the loaded speaker model
+  animateModel(speaker, gltf.animations, 6, [0.5, -1, -1]); // Animate the speaker model
 });
 
 // Define positions and rotations for different sections of the page
@@ -78,28 +77,26 @@ const sectionPositions = {
   contact: { pos: [6, -2, 0], rot: [0.3, -0.5, 0] },
 };
 
-// Function to update model position based on scroll position
+// Update model position based on scroll position
 const updateModelPosition = () => {
-  const sections = document.querySelectorAll(".section");
+  const sections = document.querySelectorAll(".section"); // Get all sections with the class "section"
   let currentId;
 
-  // Loop through each section to determine which section is currently in view
   sections.forEach((sec) => {
     if (sec.getBoundingClientRect().top <= innerHeight / 3) {
-      currentId = sec.id; // Set current section ID
+      currentId = sec.id; // Get the id of the current section in view
     }
   });
 
-  const target = sectionPositions[currentId];
-  if (!target || !bee || !speaker) return; // If no target or models, return early
+  const target = sectionPositions[currentId]; // Get the position and rotation for the section
+  if (!target || !bee || !speaker) return; // If no target or models are loaded, do nothing
 
-  // Animate the bee's position and rotation
+  // Animate the bee and speaker to their new positions based on the section in view
   gsap.to(bee.position, { ...target.pos, duration: 2.5, ease: "power1.out" });
   gsap.to(bee.rotation, { ...target.rot, duration: 2.5, ease: "power1.out" });
 
-  // Animate the speaker's position, keeping it slightly offset
   gsap.to(speaker.position, {
-    x: target.pos[0] + 1.5, // Slight offset for visual balance
+    x: target.pos[0] + 1.5,
     y: target.pos[1],
     z: target.pos[2],
     duration: 2.5,
@@ -107,20 +104,20 @@ const updateModelPosition = () => {
   });
 };
 
-// Main animation loop to continuously render the scene
+// Main animation loop
 const animate = () => {
-  requestAnimationFrame(animate); // Request next frame for animation
+  requestAnimationFrame(animate); // Call animate on the next frame
   renderer.render(scene, camera); // Render the scene from the camera's perspective
-  mixers.forEach((m) => m.update(0.02)); // Update animation mixers
+  mixers.forEach((m) => m.update(0.02)); // Update all animation mixers
 };
-animate();
+animate(); // Start the animation loop
 
-// Event listener for window resize to adjust camera and renderer size
+// Event listener for window resize
 addEventListener("resize", () => {
-  camera.aspect = innerWidth / innerHeight; // Update aspect ratio
-  camera.updateProjectionMatrix(); // Recalculate projection matrix
-  renderer.setSize(innerWidth, innerHeight); // Adjust renderer size
+  camera.aspect = innerWidth / innerHeight; // Update the camera's aspect ratio when the window resizes
+  camera.updateProjectionMatrix(); // Recalculate the projection matrix to reflect the new aspect ratio
+  renderer.setSize(innerWidth, innerHeight); // Update the renderer size
 });
 
-// Event listener for scrolling to update model positions on scroll
-addEventListener("scroll", updateModelPosition);
+// Event listener for scrolling
+addEventListener("scroll", updateModelPosition); // Update the model's position based on scroll events

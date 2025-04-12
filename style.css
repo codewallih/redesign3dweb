@@ -1,0 +1,1486 @@
+@import url("https://fonts.cdnfonts.com/css/devil-breeze");
+@import url("https://fonts.cdnfonts.com/css/poppins");
+@import url("https://fonts.cdnfonts.com/css/bimbo");
+@import url("https://fonts.cdnfonts.com/css/orbitron");
+
+html {
+  font-size: 100%; /* Default to 16px */
+}
+@media (max-width: 600px) {
+  html {
+    font-size: 90%;
+  }
+}
+@media (max-width: 400px) {
+  html {
+    font-size: 85%;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: #1b1b1b;
+  color: #eef8ce;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  background-image: url(/bg1.jpg),
+    repeating-linear-gradient(
+      to right,
+      transparent 0 500px,
+      #6c0c9933 500px 501px
+    );
+  background-repeat: no-repeat, repeat;
+  background-size: cover, 100%;
+}
+
+/* Base Styles */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #1b1b1b;
+  color: #eef8ce;
+  overflow-x: hidden;
+}
+
+/* Header */
+header .content-fit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.logo .logo-img {
+  width: 100px; /* Adjust as needed */
+  height: auto;
+}
+
+.main-navigation ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.main-navigation ul li {
+  color: #eef8ce;
+  cursor: pointer;
+}
+
+/* Banner */
+#banner .tron-legacy {
+  text-align: center;
+  padding: 2rem;
+}
+
+.marquee-text {
+  font-size: clamp(1.5rem, 5vw, 3rem); /* Responsive font size */
+}
+
+.decorate {
+  max-width: 100%;
+  height: auto;
+}
+
+.tron-button,
+.fancy-tron-button {
+  font-size: clamp(1rem, 3vw, 1.5rem); /* Responsive font size */
+}
+
+/* Description */
+#description .content-fit {
+  padding: 2rem;
+}
+
+#description .number {
+  font-size: clamp(2rem, 8vw, 4rem); /* Responsive font size */
+}
+
+#description .title {
+  font-size: clamp(1.5rem, 6vw, 3rem); /* Responsive font size */
+}
+
+#description p {
+  font-size: clamp(1rem, 3vw, 1.2rem); /* Responsive font size */
+}
+
+/* Contact */
+#contact .content-fit {
+  padding: 2rem;
+}
+
+#contact .number {
+  font-size: clamp(2rem, 8vw, 4rem); /* Responsive font size */
+}
+
+#contact .title {
+  font-size: clamp(1.5rem, 6vw, 3rem); /* Responsive font size */
+}
+
+.footer {
+  padding: 1rem;
+}
+
+.contact-table {
+  width: 100%;
+}
+
+/* Media Queries */
+/* Mobile Styles */
+@media screen and (max-width: 600px) {
+  header .content-fit {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .logo-img {
+    width: 120px;
+    height: auto;
+  }
+
+  nav.main-navigation ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .marquee-text {
+    font-size: 1.2rem;
+    white-space: normal;
+  }
+
+  .des p {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .decorate {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 2rem auto;
+  }
+
+  .number,
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  table.contact-table {
+    font-size: 0.9rem;
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+.contact-table {
+  width: min(800px, 90vw);
+  margin: auto;
+  border-collapse: collapse;
+  font-family: "Orbitron", sans-serif; /* Use one of the futuristic fonts */
+  background-color: #ff6600;
+  color: #eef8ce;
+  font-size: 1.2em;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  border: 2px solid #1d0533;
+  animation: tableEntry 1s ease-in-out;
+}
+
+.center-content {
+  margin-left: 0;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align content to the left */
+  height: 100vh;
+  text-align: left; /* Align text to the left */
+  padding: 20px 40px 20px 20px;
+  margin-left: -250px; /* Move the section more to the left */
+}
+
+.center-content .title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.footer {
+  background-color: #2a2a2a; /* Dark background */
+  color: #eef8ce; /* Light text */
+  padding: 20px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: auto;
+}
+
+.contact-table {
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+}
+
+.contact-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #3e3e3e;
+  text-align: left;
+}
+
+.contact-table td:first-child {
+  font-weight: bold;
+}
+
+.contact-table a {
+  color: #8bc34a; /* Accent color */
+  text-decoration: none;
+}
+
+.contact-table a:hover {
+  text-decoration: underline;
+}
+
+.sign {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #8bc34a;
+  margin-top: 20px;
+}
+
+.contact-table td {
+  padding: 1em;
+  border-bottom: 1px solid rgba(228, 123, 3, 0.2);
+  text-align: center;
+}
+
+.contact-table tr:last-child td {
+  border-bottom: none;
+}
+
+.contact-table td:nth-child(1) {
+  font-weight: bold;
+  color: #da470d; /* Highlight the labels */
+}
+
+.contact-table td:nth-child(2) {
+  text-align: right;
+  font-weight: lighter;
+  color: #ffcc00; /* Yellow text for second column */
+}
+
+.contact-table:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Animation */
+@keyframes tableEntry {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* General navigation styles */
+nav {
+  font-family: "Orbitron", sans-serif; /* Example of a futuristic font */
+  margin: 20px auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  padding: 0;
+}
+
+nav ul li {
+  padding: 0.5em 1em;
+  cursor: pointer;
+  font-size: 1.2em;
+  color: #eef8ce;
+  transition: all 0.3s ease;
+}
+
+/* Main navigation styles */
+.main-navigation ul li {
+  background-color: #0188b1;
+  border: 2px solid #0188b1;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(124, 9, 231, 0.5);
+}
+
+.main-navigation ul li:hover {
+  background-color: #eef8ce;
+  color: #25093f;
+  transform: scale(1.1);
+}
+
+/* Secondary navigation styles */
+.secondary-navigation ul li {
+  background-color: #1b1b1b;
+  border: 2px solid #2c1a3d;
+  border-radius: 4px;
+}
+
+.secondary-navigation ul li:hover {
+  background-color: #1f0b31;
+  color: #1b1b1b;
+  transform: rotate(3deg) scale(1.05);
+  box-shadow: 0 0 15px rgba(36, 7, 63, 0.8);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+.section {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content-fit {
+  width: min(1200px, 90vw);
+  margin: auto;
+  min-height: 100vh;
+  position: relative;
+  padding-block: 10em;
+}
+
+header .content-fit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: unset !important;
+  padding-block: unset !important;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+header .logo {
+  width: 100px; /* Adjust the size here */
+  height: auto; /* Maintain aspect ratio */
+}
+
+header .logo img {
+  width: 100%;
+  height: auto;
+}
+
+.content-fit {
+  width: min(1200px, 90vw);
+  margin: auto;
+  min-height: 100vh;
+  position: relative;
+  padding-block: 10em;
+}
+header {
+  padding-block: 1em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10px;
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  background-color: #e100ff11;
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent 0 500px,
+    rgba(117, 24, 24, 0.067) 500px 501px
+  );
+}
+
+table {
+  width: min(800px, 90%);
+  margin: 2em auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: linear-gradient(135deg, #4e305c 0%, #ff007f 100%);
+  border-radius: 10px;
+  overflow: hidden;
+  color: #eef8ce;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+table td {
+  padding: 1em 2em;
+  background: #1b1b1b;
+  font-size: 1.2em;
+}
+
+
+
+table tr:hover td {
+  background: #420642; /* Highlighted row */
+  color: #1b1b1b;
+  font-weight: bold;
+}
+
+table td:first-child {
+  text-align: left;
+  font-weight: bold;
+  color: #3b031f; /* Accent color for labels */
+}
+
+table td:last-child {
+  text-align: right;
+  font-weight: 300;
+}
+
+/* Table Container Animation */
+table {
+  width: min(800px, 90%);
+  margin: 2em auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: linear-gradient(135deg, #35044d 0%, #2e0519 100%);
+  border-radius: 10px;
+  overflow: hidden;
+  color: #eef8ce;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1s ease-in-out, glowPulse 2s infinite alternate;
+}
+
+/* Row Styles */
+table td {
+  padding: 1em 2em;
+  background: #1b1b1b;
+  font-size: 1.2em;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Alternating Row Backgrounds */
+table tr:nth-child(odd) td {
+  background: rgba(108, 12, 153, 0.2);
+}
+
+/* Row Hover Effect */
+table tr:hover td {
+  background: #2f0542;
+  color: #1b1b1b;
+  font-weight: bold;
+  transform: scale(1.05); /* Pop-out effect */
+}
+
+/* Accent Color for First Column */
+table td:first-child {
+  text-align: left;
+  font-weight: bold;
+  color: #410353;
+}
+
+/* Right Align and Style Second Column */
+table td:last-child {
+  text-align: right;
+  font-weight: 300;
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 4px 20px rgba(127, 4, 165, 0.3);
+  }
+  100% {
+    box-shadow: 0 4px 40px rgba(41, 2, 133, 0.8);
+  }
+}
+
+/* Table Base Style */
+table {
+  width: min(800px, 90%);
+  margin: 2em auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: linear-gradient(135deg, #6c0c99 0%, #2b0969 100%);
+  border-radius: 10px;
+  overflow: hidden;
+  color: #eef8ce;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  animation: fadeInBounce 1s ease-out;
+}
+
+/* Row Styles */
+table td {
+  padding: 1em 2em;
+  background: #1b1b1b;
+  font-size: 1.2em;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Alternating Row Backgrounds */
+table tr:nth-child(odd) td {
+  background: rgba(108, 12, 153, 0.2);
+}
+
+/* Bounce on Hover */
+table tr:hover td {
+  background: #4d0350;
+  color: #1b1b1b;
+  transform: translateY(-10px) scale(1.05); /* Bounce up and pop */
+  font-weight: bold;
+  box-shadow: 0 8px 20px rgba(255, 0, 127, 0.3);
+}
+
+/* Accent Color for First Column */
+table td:first-child {
+  text-align: left;
+  font-weight: bold;
+  color: #570650;
+}
+
+/* Right Align and Style Second Column */
+table td:last-child {
+  text-align: right;
+  font-weight: 300;
+}
+
+/* Bounce Animation for Scroll */
+@keyframes fadeInBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Smooth Bounce on Hover */
+@keyframes bounceHover {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Assign Scroll Animation */
+table {
+  animation: fadeInBounce 1s ease-out;
+}
+
+table tr:hover {
+  animation: bounceHover 0.5s ease-in-out;
+}
+
+header .content-fit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: unset !important;
+  padding-block: unset !important;
+}
+header .content-fit nav ul {
+  display: flex;
+  gap: 2em;
+}
+
+#banner .title {
+  color: #0381d4;
+  font-size: 11em;
+  font-family: "orbitron";
+  font-weight: bold;
+  position: relative;
+  text-align: center;
+}
+#banner .title::before {
+  content: attr(data-before);
+  position: absolute;
+  top: 0.5em;
+  inset: 0.66em 0 0 0;
+  z-index: -1;
+  color: #4d83ca;
+}
+.section .decorate {
+  position: absolute;
+}
+#intro .content-fit {
+  display: flex;
+  gap: 30%;
+  justify-content: space-between;
+  align-items: center;
+}
+.section .number {
+  font-family: "orbitron";
+  font-size: 15em;
+  font-weight: bold;
+}
+.section .content-fit .title {
+  font-family: "orbitron";
+  font-size: 5em;
+  font-weight: bold;
+}
+#description .content-fit {
+  padding-right: 30%;
+}
+#description .number {
+  font-size: 5em;
+}
+#description .title {
+  font-size: 7em;
+  font-weight: 500;
+}
+#contact .content-fit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+#contact table {
+  width: min(800px, 90vw);
+  padding-top: 2em;
+  font-size: 2em;
+  margin: auto;
+}
+#contact table td {
+  padding-block: 0.5em;
+  border-bottom: 1px dashed #445022;
+}
+#contact table td:nth-child(1) {
+  text-align: left;
+  font-weight: 500;
+}
+#contact table td:nth-child(2) {
+  text-align: right;
+  font-weight: 200;
+}
+#contact .sign {
+  font-family: "orbitron", sans-serif;
+  font-size: 10em;
+}
+
+.footer {
+  background-color: #222; /* Dark background for contrast */
+  color: #fff; /* White text */
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-section,
+.sitemap-section {
+  flex: 1;
+  min-width: 250px;
+  margin: 10px;
+}
+
+.contact-section h3,
+.sitemap-section h3 {
+  border-bottom: 2px solid #fff;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  font-size: 18px;
+}
+
+.contact-table td {
+  padding: 5px;
+  vertical-align: top;
+  color: #ffffff; /* White text for first column */
+}
+
+/* Base styling for the button */
+.button-3d {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #1f0cce;
+  background-color: #040e18; /* Blue background */
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px #0056b3; /* Shadow for 3D effect */
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+/* Base styling for the button */
+.button-3d {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #007bff; /* Blue background */
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px #0056b3; /* Shadow for 3D effect */
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease, transform 0.3s ease;
+  text-align: center;
+  animation: float 2s infinite ease-in-out; /* Added animation */
+}
+
+/* Hover effect for the button */
+.button-3d:hover {
+  box-shadow: 0 6px #0056b3;
+  transform: translateY(-3px) scale(1.05); /* Lift and slightly enlarge on hover */
+}
+
+/* Active state for click effect */
+.button-3d:active {
+  box-shadow: 0 0 #0056b3;
+  transform: translateY(4px);
+}
+
+/* Adding custom pseudo-element for dynamic effect */
+.button-3d::before {
+  content: attr(data-before);
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: #ffcc00; /* Golden yellow for extra pop */
+  opacity: 0;
+  transition: opacity 0.3s ease, top 0.3s ease;
+}
+
+/* Hover effect for the pseudo-element */
+.button-3d:hover::before {
+  opacity: 1;
+  top: -40px;
+}
+
+/* Animation for floating effect */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Hover effect for the button */
+.button-3d:hover {
+  box-shadow: 0 2px #235080;
+  transform: translateY(2px); /* Makes the button appear pressed */
+}
+
+/* Active state for click effect */
+.button-3d:active {
+  box-shadow: 0 0 #031c36;
+  transform: translateY(4px);
+}
+
+/* Adding custom pseudo-element for dynamic effect */
+.button-3d::before {
+  content: attr(data-before);
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: #ffcc00; /* Golden yellow for extra pop */
+  opacity: 0;
+  transition: opacity 0.3s, top 0.3s;
+}
+
+/* Hover effect for the pseudo-element */
+.button-3d:hover::before {
+  opacity: 1;
+  top: -40px;
+}
+
+.contact-table td:first-child {
+  font-weight: bold;
+  width: 70px;
+}
+
+.sitemap-list {
+  list-style: none;
+  padding: 0;
+}
+
+.sitemap-list li {
+  margin-bottom: 5px;
+}
+
+.sitemap-list a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.sitemap-list a:hover {
+  color: #0db7ed; /* Add hover effect for links */
+}
+
+#contact .sign {
+  font-family: "Orbitron", sans-serif;
+  font-size: 10em;
+  text-align: center;
+  color: #d9b8f6; /* Light purple */
+  text-shadow: 0 0 10px #450652, 0 0 20px #6a0572, 0 0 40px #6a0572,
+    0 0 80px rgba(106, 5, 114, 0.5); /* Glowing effect in dark purple shades */
+  animation: pulseGlow 2s infinite;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Add hover effect */
+#contact .sign:hover {
+  transform: scale(1.1); /* Pop out on hover */
+  text-shadow: 0 0 20px #6a0572, 0 0 40px #6a0572, 0 0 80px #6a0572,
+    0 0 100px rgba(106, 5, 114, 0.7); /* More intense glow */
+}
+
+/* Pulse animation for glowing effect */
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0 0 10px #6a0572, 0 0 20px #6a0572, 0 0 40px #6a0572,
+      0 0 80px rgba(106, 5, 114, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px #6a0572, 0 0 40px #6a0572, 0 0 80px #6a0572,
+      0 0 120px rgba(106, 5, 114, 0.7);
+  }
+  100% {
+    text-shadow: 0 0 10px #6a0572, 0 0 20px #6a0572, 0 0 40px #6a0572,
+      0 0 80px rgba(106, 5, 114, 0.5);
+  }
+}
+
+#container3D {
+  position: fixed;
+  inset: 0;
+  /* background-color: red; */
+  z-index: 100;
+  pointer-events: none;
+}
+@media screen and (max-width: 1023px) {
+  #banner .title {
+    font-size: 5em;
+  }
+  #intro .content-fit {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 767px) {
+  #banner .title {
+    font-size: 3em;
+  }
+  #intro .content-fit {
+    flex-direction: column;
+  }
+  .section .number {
+    font-size: 5em;
+  }
+  .section .content-fit .title {
+    font-size: 2em;
+  }
+  #description .content-fit {
+    padding-right: 0;
+  }
+  #contact table {
+    font-size: 1em;
+  }
+  #contact .sign {
+    font-size: 2em;
+  }
+  #container3D {
+    position: absolute;
+  }
+}
+
+/* Common Custom Properties */
+:root {
+  --background-color: #1a1a1a;
+  --text-color: #00ffff;
+  --text-transform: uppercase;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Mobile-Ready Design */
+@media (max-width: 768px) {
+  .content-fit {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  [data-testid="header"] .content-fit {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-navigation ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #intro,
+  #description,
+  #contact {
+    padding: 1rem;
+  }
+}
+
+/* Main Content Container */
+.tron-legacy {
+  width: min(95vw, 1400px); /* Adapts to screen and limits excessive growth */
+  height: 300px; /* Fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform-origin: center;
+
+  /* Terrain Grid Overlay */
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  background-blend-mode: overlay;
+}
+
+/* Tron Legacy - Ultimate Immersion */
+.tron-legacy {
+  background: linear-gradient(135deg, #0a0a0a, #161616);
+  border: 3px solid #00ffff;
+  border-radius: 20px;
+  padding: 50px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(0, 255, 255, 0.8), 0 0 100px rgba(0, 255, 255, 0.5);
+  margin: 150px auto; /* Centers it horizontally */
+}
+
+/* Moving Energy Grid */
+.tron-legacy::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 400%;
+  height: 200%;
+  background: conic-gradient(
+    from 90deg,
+    transparent,
+    #dd930a,
+    transparent,
+    #7d01f1,
+    transparent
+  );
+  animation: rotate-grid 10s linear infinite, tron-pulse 3s infinite alternate;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+/* TRON TITLE - WAVE-LIKE MOTION */
+.tron-legacy .title {
+  font-family: "Orbitron", sans-serif;
+  font-size: 6rem;
+  text-transform: uppercase;
+  animation: tron-title-warp 4s infinite ease-in-out;
+}
+
+/* Holographic Ghost Reflection */
+.tron-legacy .title::before {
+  content: attr(data-before);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: rgba(0, 255, 255, 0.3);
+  transform: translate(-15px, -15px) skewX(-10deg);
+  z-index: -1;
+}
+
+/*TRON MARQUEE - FLOATING CYBER TEXT */
+.tron-legacy {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+/* Media Queries for Mobile and Tablet Sizes */
+@media (max-width: 768px) {
+  .content-fit,
+  [data-testid="header"] .content-fit {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-navigation ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #intro,
+  #description,
+  #contact {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tron-button,
+  [data-testid="fancy"] {
+    width: 90px;
+  }
+
+  .tron-button:hover {
+    box-shadow: none 0 25px rgb(102, 52, 218);
+  }
+}
+
+@media (max-width: 768px) {
+  .tron-button,
+  [data-testid="fancy"] {
+    width: 95px;
+  }
+
+  .tron-button:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 1);
+  }
+}
+
+/* Ensures text color remains consistent */
+.tron-button .title,
+.fancy-tron-button .title {
+  color: inherit;
+}
+
+/* Enhanced Tron Legacy Styles */
+/* Tron Legacy - The Ultimate Groove Edition */
+
+/* TRON LEGACY - ULTIMATE IMMERSION */
+.tron-legacy {
+  background: linear-gradient(135deg, #0a0a0a, #161616);
+  border: 3px solid #00ffff;
+  border-radius: 20px;
+  padding: 50px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(0, 255, 255, 0.8), 0 0 100px rgba(0, 255, 255, 0.5);
+  margin: 150px auto; /* Centers it horizontally */
+  width: min(
+    95vw,
+    1400px
+  ); /* Adapts width to screen but limits excessive growth */
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform-origin: center;
+
+  /* Terrain Grid Overlay */
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  background-blend-mode: overlay;
+
+  /* Hypnotic Floating Panel */
+  animation: tron-groove 6s infinite ease-in-out;
+}
+
+/* Moving Energy Grid */
+.tron-legacy::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 400%;
+  height: 200%;
+  background: conic-gradient(
+    from 90deg,
+    transparent,
+    #00ffff,
+    transparent,
+    #00ffff,
+    transparent
+  );
+  animation: rotate-grid 10s linear infinite, tron-pulse 3s infinite alternate;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+/* TRON TITLE - WAVE-LIKE MOTION */
+.tron-legacy .title {
+  font-family: "Orbitron", sans-serif;
+  font-size: 6rem;
+  color: #00ffff;
+  text-shadow: 0 0 40px #00ffff, 0 0 60px #00ffff, 0 0 80px #00ffff;
+  position: relative;
+  z-index: 2;
+
+  /* Cybernetic Wobble */
+  animation: tron-title-warp 4s infinite ease-in-out;
+}
+
+/* Holographic Ghost Reflection */
+.tron-legacy .title::before {
+  content: attr(data-before);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: rgba(0, 255, 255, 0.3);
+  transform: translate(-15px, -15px) skewX(-10deg);
+  z-index: -1;
+}
+
+/*TRON MARQUEE - FLOATING CYBER TEXT */
+.tron-legacy .marquee-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+
+.tron-legacy .marquee-text {
+  display: inline-block;
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.5rem;
+  color: #00ffff;
+  text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+  overflow: visible;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  /* Marquee Motion */
+  animation: tron-marquee 8s linear infinite,
+    tron-wavy-text 2s infinite ease-in-out;
+}
+
+/* 💡 Interactive Hover Effects */
+.tron-legacy .marquee-text:hover {
+  animation: tron-hover-glitch 0.3s infinite alternate;
+}
+
+/* 🔥 KEYFRAMES - Hypnotic Sway */
+@keyframes tron-groove {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) scale(1);
+  }
+  25% {
+    transform: rotateX(2deg) rotateY(-2deg) scale(1.02);
+  }
+  50% {
+    transform: rotateX(-2deg) rotateY(2deg) scale(1.03);
+  }
+  75% {
+    transform: rotateX(1deg) rotateY(-1deg) scale(1.02);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) scale(1);
+  }
+}
+
+/*Title Flicker & Depth Shift */
+@keyframes tron-title-warp {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(-4px) skewX(-5deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(4px) skewX(5deg);
+    opacity: 0.95;
+  }
+  75% {
+    transform: translateY(-2px) skewX(-3deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/*Smooth Floating Marquee */
+@keyframes tron-marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* ⚡ Glitchy Flicker on Hover */
+@keyframes tron-hover-glitch {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Energy Grid Rotation */
+@keyframes rotate-grid {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*Energy Pulsation */
+@keyframes tron-pulse {
+  0% {
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.7), 0 0 90px rgba(0, 255, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 100px rgba(0, 255, 255, 1), 0 0 140px rgba(0, 255, 255, 0.8);
+  }
+}
+
+/*Text Wave Effect */
+@keyframes tron-wavy-text {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"); /* Futuristic font */
+
+.tron-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px; /* Fixed width */
+  height: 100px; /* Fixed height */
+  font-size: 32px;
+  font-weight: bold;
+  font-family: "Orbitron", sans-serif; /* Applying futuristic font */
+  color: #00ffff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  background: linear-gradient(135deg, #0a0a0a, #161616);
+  border: 5px solid #00ffff;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.6);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  animation: tron-glow 1.5s infinite alternate;
+}
+
+/* Glowing effect */
+.tron-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 255, 255, 0.2);
+  transition: left 0.3s ease-in-out;
+}
+
+.tron-button:hover::before {
+  left: 100%;
+}
+
+.tron-button:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 255, 1), 0 0 60px rgba(0, 255, 255, 0.8);
+  transform: scale(1.15);
+}
+
+/* Pulsating Glow */
+@keyframes tron-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 1), 0 0 50px rgba(0, 255, 255, 0.9);
+  }
+}
+
+/* Ensures text color remains consistent */
+.tron-button .title {
+  color: inherit;
+}
+
+.fancy-tron-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: linear-gradient(135deg, #000000, #161616);
+  border: 4px solid #00ffff;
+  border-radius: 16px;
+  padding: 9px 25px; /* Reduced top & bottom padding */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  min-width: 90px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glowing effect */
+.fancy-tron-button::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 255, 255, 0.2);
+  top: 0;
+  left: -100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.fancy-tron-button:hover::before {
+  left: 100%;
+}
+
+.fancy-tron-button:hover {
+  background: #00ffff;
+  color: #161616;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 1), 0 0 60px rgba(0, 255, 255, 0.9);
+}
+
+.fancy-tron-button .title {
+  font-size: 18px; /* Reduced from 24px */
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #00ffff;
+  transition: color 0.3s ease-in-out;
+}
+
+.fancy-tron-button:hover .title {
+  color: #161616;
+}
+
+.decorate {
+  max-width: 50%;
+  height: auto;
+  float: right;
+  margin-left: 20px;
+  margin-right: -1000px; /* 👈 PUSHES IT MORE RIGHT */
+  margin-bottom: 30px;
+  margin-top: -750px;
+  shape-outside: inset(0%);
+  clear: none;
+  z-index: 5;
+  position: relative;
+  display: inline;
+}
+
+.marquee-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+  box-shadow: 0 0 20px #0ff;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-text {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 5vw, 3rem); /* Responsive font size */
+  color: #00ffff;
+  white-space: nowrap;
+  word-break: break-word; /* Break long words */
+
+  display: inline-block;
+  animation: scroll-text 12s linear infinite;
+  text-shadow: 0 0 8px #00fdfd, 0 0 16px #00fdfd;
+}
+
+/* Animation that keeps it inside and scrolling fully */
+@keyframes scroll-text {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

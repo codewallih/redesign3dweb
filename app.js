@@ -1,105 +1,90 @@
-import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
-import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
-import { gsap } from "https://cdn.skypack.dev/gsap";
+import * as THREE from 'https://cdn.skypack.dev/three@0.129.0/build/three.module.js';
+import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
+import { gsap } from 'https://cdn.skypack.dev/gsap';
 
-const camera = new THREE.PerspectiveCamera(
-  10,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
-camera.position.z = 6;
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 20;
 
 const scene = new THREE.Scene();
-let bee;
-let mixer;
+let bee, secondModel;
+let mixer, secondModelMixer;
 const loader = new GLTFLoader();
-loader.load("/burger.glb", function (gltf) {
-  bee = gltf.scene;
-  scene.add(bee);
-  bee.scale.set(5, 5, 5); // Reduced dimensions to half the original size
-  mixer = new THREE.AnimationMixer(bee);
-  mixer.clipAction(gltf.animations[0]).play();
-  modelMove();
-});
+
+// Load the first model
+loader.load('/bee.glb',
+    function (gltf) {
+        bee = gltf.scene;
+        bee.scale.set(25, 25, 25);
+        bee.position.set(-1, -1, -1);
+        scene.add(bee);
+
+        mixer = new THREE.AnimationMixer(bee);
+        mixer.clipAction(gltf.animations[0]).play();
+    }
+);
+
+// Load the second model
+loader.load('/headphones.glb',
+    function (gltf) {
+        secondModel = gltf.scene;
+        secondModel.scale.set(9,9,9);
+        secondModel.position.set(5, -1, 1);
+        scene.add(secondModel);
+
+        secondModelMixer = new THREE.AnimationMixer(secondModel);
+        if (gltf.animations.length) {
+            secondModelMixer.clipAction(gltf.animations[0]).play();
+        }
+    }
+);
+
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.getElementById("container3D").appendChild(renderer.domElement);
+document.getElementById('container3D').appendChild(renderer.domElement);
 
-// light
-const ambientLight = new THREE.AmbientLight(0xffffff, 1.3);
+// Lighting
+const ambientLight = new THREE.AmbientLight(0xffffff, 2.0);
 scene.add(ambientLight);
 
-const topLight = new THREE.DirectionalLight(0xffffff, 1);
+const topLight = new THREE.DirectionalLight(0xffffff, 3.0);
 topLight.position.set(500, 500, 500);
 scene.add(topLight);
 
+// Animation loop
 const reRender3D = () => {
-  requestAnimationFrame(reRender3D);
-  renderer.render(scene, camera);
-  if (mixer) mixer.update(0.02);
+    requestAnimationFrame(reRender3D);
+    renderer.render(scene, camera);
+    
+    // Update the animation mixers for any model animations
+    if (mixer) mixer.update(0.02);
+    if (secondModelMixer) secondModelMixer.update(0.02);
 };
 reRender3D();
 
-let arrPositionModel = [
-  {
-    id: "banner",
-    position: { x: 0, y: -1, z: 0 },
-    rotation: { x: 0, y: 1.5, z: 0 },
-  },
-  {
-    id: "intro",
-    position: { x: 1, y: -1, z: -5 },
-    rotation: { x: 0.5, y: -0.5, z: 0 },
-  },
-  {
-    id: "description",
-    position: { x: -1, y: -1, z: -5 },
-    rotation: { x: 0, y: 0.5, z: 0 },
-  },
-  {
-    id: "contact",
-    position: { x: 0.8, y: -1, z: 0 },
-    rotation: { x: 0.3, y: -0.5, z: 0 },
-  },
-];
-const modelMove = () => {
-  const sections = document.querySelectorAll(".section");
-  let currentSection;
-  sections.forEach((section) => {
-    const rect = section.getBoundingClientRect();
-    if (rect.top <= window.innerHeight / 3) {
-      currentSection = section.id;
+// Infinite Tumble on Scroll
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;  // Get scroll position
+    
+    // Calculate rotation speed based on scroll position
+    const rotationSpeed = scrollY * 0.001;  // Adjust this factor as needed
+
+    // Apply rotation to both models, ensuring the rotation is smooth and continuous
+    if (bee) {
+        bee.rotation.x += rotationSpeed;
+        bee.rotation.y += rotationSpeed;
+        bee.rotation.z += rotationSpeed;
     }
-  });
-  let position_active = arrPositionModel.findIndex(
-    (val) => val.id == currentSection
-  );
-  if (position_active >= 0) {
-    let new_coordinates = arrPositionModel[position_active];
-    gsap.to(bee.position, {
-      x: new_coordinates.position.x,
-      y: new_coordinates.position.y,
-      z: new_coordinates.position.z,
-      duration: 3,
-      ease: "power1.out",
-    });
-    gsap.to(bee.rotation, {
-      x: new_coordinates.rotation.x,
-      y: new_coordinates.rotation.y,
-      z: new_coordinates.rotation.z,
-      duration: 3,
-      ease: "power1.out",
-    });
-  }
-};
-window.addEventListener("scroll", () => {
-  if (bee) {
-    modelMove();
-  }
+    
+    if (secondModel) {
+        secondModel.rotation.x += rotationSpeed;
+        secondModel.rotation.y += rotationSpeed;
+        secondModel.rotation.z += rotationSpeed;
+    }
 });
-window.addEventListener("resize", () => {
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
+
+// Window resize handler
+window.addEventListener('resize', () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
 });

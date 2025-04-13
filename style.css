@@ -1,6 +1,4 @@
-@import url("https://fonts.cdnfonts.com/css/devil-breeze");
 @import url("https://fonts.cdnfonts.com/css/poppins");
-@import url("https://fonts.cdnfonts.com/css/bimbo");
 @import url("https://fonts.cdnfonts.com/css/orbitron");
 
 html {
@@ -92,6 +90,8 @@ header .content-fit {
 /* Description */
 #description .content-fit {
   padding: 2rem;
+  font-family: "orbitron";
+
 }
 
 #description .number {
@@ -151,10 +151,7 @@ header .content-fit {
     white-space: normal;
   }
 
-  .des p {
-    font-size: 0.9rem;
-    padding: 0.5rem;
-  }
+ 
 
   .decorate {
     max-width: 100%;
@@ -381,7 +378,7 @@ header .content-fit {
   justify-content: space-between;
 }
 
-header .logo {
+header{
   width: 100px; /* Adjust the size here */
   height: auto; /* Maintain aspect ratio */
 }
